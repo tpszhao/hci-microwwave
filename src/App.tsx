@@ -1,6 +1,7 @@
 import ExpressBookingButton from "./components/ExpressBookingButton";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
+import TimeSetter from "./components/TimeSetter";
 
 function DefaultScreen() {
   return (
@@ -11,6 +12,7 @@ function DefaultScreen() {
         <ExpressBookingButton>2:00</ExpressBookingButton>
         <ExpressBookingButton>3:00</ExpressBookingButton>
       </div>
+      <TimeSetter />
     </Layout>
   );
 }
