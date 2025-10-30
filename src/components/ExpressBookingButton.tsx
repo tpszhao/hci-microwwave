@@ -8,7 +8,7 @@ export default function ExpressBookingButton({
 }) {
   return (
     <div className="flex flex-wrap items-center gap-2 md:flex-row w-full">
-      <Button>{children}</Button>
+      <Button className="grow-1">{children}</Button>
       <Button size="icon" aria-label="Submit">
         <SettingsIcon />
       </Button>
