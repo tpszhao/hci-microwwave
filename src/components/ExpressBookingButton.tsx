@@ -11,7 +11,9 @@ export default function ExpressBookingButton({
   initialState: [number, number, number];
   id: string;
 }) {
-  const { customizingId, changeCustomize } = useScreenState(state => state);
+  const { customizingId, changeCustomize, cook } = useScreenState(
+    state => state
+  );
   const isCustomizing = customizingId === id;
 
   const [state, setState] = useState(initialState);
@@ -24,7 +26,11 @@ export default function ExpressBookingButton({
   return (
     <div className="flex flex-wrap items-center gap-2 md:flex-row w-full">
       {isCustomizing && <div className="w-full">Customize</div>}
-      <Button className="grow-1" disabled={isCustomizing}>
+      <Button
+        className="grow-1"
+        disabled={isCustomizing}
+        onClick={() => cook(state)}
+      >
         {buttonText}
       </Button>
       <Button
