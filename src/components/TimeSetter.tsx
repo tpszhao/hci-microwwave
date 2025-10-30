@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { hourOptions, minuteOptions, secondOptions } from "./constants";
 import { WheelPicker, WheelPickerWrapper } from "./wheel-picker";
 
@@ -22,7 +21,7 @@ export default function TimeSetter({
   };
 
   return (
-    <div className="w-56 items-center md:flex-column w-full my-8">
+    <div className="w-56 items-center md:flex-column w-full mb-8">
       <div className="flex items-center md:flex-row w-full justify-around">
         <div>Hours</div>
         <div>Minutes</div>
@@ -32,21 +31,21 @@ export default function TimeSetter({
         <WheelPicker
           options={hourOptions}
           visibleCount={10}
-          scrollSensitivity={20}
+          scrollSensitivity={30}
           value={String(hour)}
           onValueChange={val => onValueChange(val, 0)}
         />
         <WheelPicker
           options={minuteOptions}
           visibleCount={10}
-          scrollSensitivity={20}
+          scrollSensitivity={30}
           value={String(minute)}
           onValueChange={val => onValueChange(val, 1)}
         />
         <WheelPicker
           options={secondOptions}
           visibleCount={10}
-          scrollSensitivity={20}
+          scrollSensitivity={30}
           value={String(seconds)}
           onValueChange={val => onValueChange(val, 2)}
         />
