@@ -34,6 +34,7 @@ export default function TimeSetter({
           scrollSensitivity={30}
           value={String(hour)}
           onValueChange={val => onValueChange(val, 0)}
+          infinite
         />
         <WheelPicker
           options={minuteOptions}
@@ -41,6 +42,7 @@ export default function TimeSetter({
           scrollSensitivity={30}
           value={String(minute)}
           onValueChange={val => onValueChange(val, 1)}
+          infinite
         />
         <WheelPicker
           options={secondOptions}
@@ -48,6 +50,7 @@ export default function TimeSetter({
           scrollSensitivity={30}
           value={String(seconds)}
           onValueChange={val => onValueChange(val, 2)}
+          infinite
         />
       </WheelPickerWrapper>
     </div>
