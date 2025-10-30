@@ -4,19 +4,16 @@ import { useScreenState } from "@/hooks/useScreenState";
 import TimeSetter from "./TimeSetter";
 import { useState } from "react";
 
-export default function ExpressBookingButton({
-  id,
-  initialState
-}: {
-  initialState: [number, number, number];
-  id: string;
-}) {
-  const { customizingId, changeCustomize, cook } = useScreenState(
-    state => state
-  );
+export default function ExpressBookingButton({ id }: { id: string }) {
+  const {
+    customizingId,
+    changeCustomize,
+    cook,
+    customizeOptions,
+    setCustomizeOptions
+  } = useScreenState(state => state);
   const isCustomizing = customizingId === id;
-
-  const [state, setState] = useState(initialState);
+  const state = customizeOptions[id];
   const [wheelState, setWheelState] = useState(state);
   const buttonText = state.map(a => String(a).padStart(2, "0")).join(":");
   if (Boolean(customizingId) && !isCustomizing) {
@@ -47,7 +44,7 @@ export default function ExpressBookingButton({
           <Button onClick={() => changeCustomize("")}>Cancel</Button>
           <Button
             onClick={() => {
-              setState(wheelState);
+              setCustomizeOptions(id, wheelState);
               changeCustomize("");
             }}
           >

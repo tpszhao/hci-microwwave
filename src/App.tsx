@@ -22,9 +22,9 @@ function DefaultScreen() {
       <div className="flex flex-wrap items-center gap-2 md:flex-column w-full">
         <Header />
         <div className="w-full">Express Cooking</div>
-        <ExpressBookingButton id="1" initialState={[0, 1, 0]} />
-        <ExpressBookingButton id="2" initialState={[0, 2, 0]} />
-        <ExpressBookingButton id="3" initialState={[0, 3, 0]} />
+        <ExpressBookingButton id="1" />
+        <ExpressBookingButton id="2" />
+        <ExpressBookingButton id="3" />
       </div>
 
       {!isCustomizing && (
