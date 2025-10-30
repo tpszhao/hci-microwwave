@@ -27,9 +27,21 @@ export default function TimeSetter() {
         <div>Seconds</div>
       </div>
       <WheelPickerWrapper>
-        <WheelPicker options={hourOptions} visibleCount={10} />
-        <WheelPicker options={minuteOptions} visibleCount={10} />
-        <WheelPicker options={secondOptions} visibleCount={10} />
+        <WheelPicker
+          options={hourOptions}
+          visibleCount={10}
+          scrollSensitivity={20}
+        />
+        <WheelPicker
+          options={minuteOptions}
+          visibleCount={10}
+          scrollSensitivity={20}
+        />
+        <WheelPicker
+          options={secondOptions}
+          visibleCount={10}
+          scrollSensitivity={20}
+        />
       </WheelPickerWrapper>
     </div>
   );
