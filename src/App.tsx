@@ -12,11 +12,11 @@ function DefaultScreen() {
     <Layout>
       <div className="flex flex-wrap items-center gap-2 md:flex-column w-full">
         <Header />
-        <ExpressBookingButton>1:00</ExpressBookingButton>
-        <ExpressBookingButton>2:00</ExpressBookingButton>
-        <ExpressBookingButton>3:00</ExpressBookingButton>
+        <ExpressBookingButton id="1">1:00</ExpressBookingButton>
+        <ExpressBookingButton id="2">2:00</ExpressBookingButton>
+        <ExpressBookingButton id="3">3:00</ExpressBookingButton>
       </div>
-      <TimeSetter />
+      {!isCustomizing && <TimeSetter />}
 
       {!isCustomizing && (
         <div className="flex flex-wrap items-center gap-2 md:flex-column w-full justify-end mt-8">
