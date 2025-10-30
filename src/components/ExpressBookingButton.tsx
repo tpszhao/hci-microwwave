@@ -30,13 +30,11 @@ export default function ExpressBookingButton({ id }: { id: string }) {
       >
         {buttonText}
       </Button>
-      <Button
-        size="icon"
-        disabled={isCustomizing}
-        onClick={() => changeCustomize(id)}
-      >
-        <SettingsIcon />
-      </Button>
+      {!isCustomizing && (
+        <Button size="icon" onClick={() => changeCustomize(id)}>
+          <SettingsIcon />
+        </Button>
+      )}
 
       {isCustomizing && (
         <>
