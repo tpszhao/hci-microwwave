@@ -2,16 +2,21 @@ import { SettingsIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useScreenState } from "@/hooks/useScreenState";
 import TimeSetter from "./TimeSetter";
+import { useState } from "react";
 
 export default function ExpressBookingButton({
-  children,
-  id
+  id,
+  initialState
 }: {
-  children?: React.ReactNode;
+  initialState: [number, number, number];
   id: string;
 }) {
   const { customizingId, changeCustomize } = useScreenState(state => state);
   const isCustomizing = customizingId === id;
+
+  const [state, setState] = useState(initialState);
+  const [wheelState, setWheelState] = useState(state);
+  const buttonText = state.map(a => String(a).padStart(2, "0")).join(":");
   if (Boolean(customizingId) && !isCustomizing) {
     return null;
   }
@@ -20,7 +25,7 @@ export default function ExpressBookingButton({
     <div className="flex flex-wrap items-center gap-2 md:flex-row w-full">
       {isCustomizing && <div className="w-full">Customize</div>}
       <Button className="grow-1" disabled={isCustomizing}>
-        {children}
+        {buttonText}
       </Button>
       <Button
         size="icon"
@@ -32,9 +37,16 @@ export default function ExpressBookingButton({
 
       {isCustomizing && (
         <>
-          <TimeSetter />
+          <TimeSetter wheelState={wheelState} setWheelState={setWheelState} />
           <Button onClick={() => changeCustomize("")}>Cancel</Button>
-          <Button onClick={() => changeCustomize("")}>Save</Button>
+          <Button
+            onClick={() => {
+              setState(wheelState);
+              changeCustomize("");
+            }}
+          >
+            Save
+          </Button>
         </>
       )}
     </div>
