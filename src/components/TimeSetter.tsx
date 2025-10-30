@@ -1,22 +1,5 @@
+import { hourOptions, minuteOptions, secondOptions } from "./constants";
 import { WheelPicker, WheelPickerWrapper } from "./wheel-picker";
-
-const hourOptions = [
-  {
-    label: "0",
-    value: "0"
-  },
-  {
-    label: "1",
-    value: "1"
-  }
-];
-
-const minuteOptions = Array.from({ length: 60 }, (_, i) => ({
-  label: String(i).padStart(2, "0"),
-  value: String(i)
-}));
-
-const secondOptions = minuteOptions.map(a => ({ ...a }));
 
 export default function TimeSetter() {
   return (
