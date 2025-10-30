@@ -81,6 +81,16 @@ function CookingIndicator({
   return <div className="w-full">Cooking Paused</div>;
 }
 
+function CookingButtonWrapper({
+  count,
+  children
+}: {
+  count: number;
+  children: React.ReactNode;
+}) {
+  if (count < 1) return null;
+  return children;
+}
 function CookingScreen() {
   const { timer, changePage } = useScreenState();
   const [cooking, setCooking] = useState(true);
@@ -101,25 +111,27 @@ function CookingScreen() {
         <Count count={count} />
 
         <div className="flex flex-wrap items-center gap-2 md:flex-column w-full justify-end mt-8">
-          {cooking ? (
-            <Button
-              onClick={() => {
-                setCooking(false);
-                stopCountdown();
-              }}
-            >
-              Pause
-            </Button>
-          ) : (
-            <Button
-              onClick={() => {
-                setCooking(true);
-                startCountdown();
-              }}
-            >
-              Resume
-            </Button>
-          )}
+          <CookingButtonWrapper count={count}>
+            {cooking ? (
+              <Button
+                onClick={() => {
+                  setCooking(false);
+                  stopCountdown();
+                }}
+              >
+                Pause
+              </Button>
+            ) : (
+              <Button
+                onClick={() => {
+                  setCooking(true);
+                  startCountdown();
+                }}
+              >
+                Resume
+              </Button>
+            )}
+          </CookingButtonWrapper>
           <Button onClick={() => changePage("")}>Stop</Button>
         </div>
       </div>
