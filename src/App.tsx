@@ -1,11 +1,22 @@
-import { Button } from "@/components/ui/button";
+import ExpressBookingButton from "./components/ExpressBookingButton";
+import Header from "./components/Header";
+import Layout from "./components/Layout";
+
+function DefaultScreen() {
+  return (
+    <Layout>
+      <div className="flex flex-wrap items-center gap-2 md:flex-column w-full">
+        <Header />
+        <ExpressBookingButton>1:00</ExpressBookingButton>
+        <ExpressBookingButton>2:00</ExpressBookingButton>
+        <ExpressBookingButton>3:00</ExpressBookingButton>
+      </div>
+    </Layout>
+  );
+}
 
 function App() {
-  return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
-  );
+  return <DefaultScreen />;
 }
 
 export default App;
